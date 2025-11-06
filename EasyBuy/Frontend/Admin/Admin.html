@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyBuy Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>EasyBuy</h2>
+        <ul>
+          <li>
+            <a href="#" class="active"><i class="fa fa-home"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-box"></i> Manage Packages</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-list"></i> Manage Items</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-users"></i> Customers</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-shopping-cart"></i> Orders</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-gear"></i> Settings</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Dashboard -->
+      <main class="dashboard">
+        <header>
+          <h1>Welcome, Admin 👋</h1>
+          <a href="index.html" class="logout-btn">Logout</a>
+        </header>
+
+        <section class="stats">
+          <div class="card">
+            <i class="fa fa-box"></i>
+            <h3>Total Packages</h3>
+            <p>12</p>
+          </div>
+          <div class="card">
+            <i class="fa fa-list"></i>
+            <h3>Single Items</h3>
+            <p>58</p>
+          </div>
+          <div class="card">
+            <i class="fa fa-users"></i>
+            <h3>Registered Customers</h3>
+            <p>245</p>
+          </div>
+          <div class="card">
+            <i class="fa fa-clock"></i>
+            <h3>Pending Orders</h3>
+            <p>7</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

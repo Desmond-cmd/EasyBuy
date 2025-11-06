@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyBuy Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-dashboard.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #f8fafa;
+      }
+
+      .dashboard-container {
+        display: flex;
+        height: 100vh;
+      }
+
+      .sidebar {
+        width: 260px;
+        background-color: #0c5f46;
+        color: white;
+        padding: 20px;
+      }
+
+      .sidebar h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        padding: 12px 15px;
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+      }
+
+      .sidebar ul li:hover,
+      .sidebar ul li.active {
+        background: #1b4d3e;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 20px 40px;
+        overflow-y: auto;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .logout-btn {
+        background: #0c5f46;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .logout-btn:hover {
+        background: #094c37;
+      }
+
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 220px;
+      }
+
+      .stats-section {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      /* Hide all sections initially */
+      .page-section {
+        display: none;
+      }
+
+      /* Show active section */
+      .page-section.active {
+        display: block;
+      }
+
+      /* Search Bar */
+      .search-bar {
+        margin: 20px 0;
+      }
+
+      .search-bar input {
+        width: 300px;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="logo">EasyBuy</h2>
+        <ul>
+          <li class="active" data-page="dashboard">🏠 Dashboard</li>
+          <li data-page="packages">📦 Manage Packages</li>
+          <li data-page="items">🛒 Manage Items</li>
+          <li data-page="customers">👥 Customers</li>
+          <li data-page="orders">📑 Orders</li>
+          <li data-page="settings">⚙️ Settings</li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="topbar">
+          <h3>EasyBuy Admin Dashboard</h3>
+          <a href="#" class="logout-btn" id="logoutBtn">Logout</a>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="page-section active">
+          <h2>Welcome, Admin 👋</h2>
+          <p>Here’s an overview of your supermarket operations.</p>
+          <div class="stats-section">
+            <div class="card">
+              <i>📦</i>
+              <h3>Total Packages</h3>
+              <p>12</p>
+            </div>
+            <div class="card">
+              <i>🛍️</i>
+              <h3>Single Items</h3>
+              <p>58</p>
+            </div>
+            <div class="card">
+              <i>👥</i>
+              <h3>Registered Customers</h3>
+              <p>245</p>
+            </div>
+            <div class="card">
+              <i>🕒</i>
+              <h3>Pending Orders</h3>
+              <p>7</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Manage Packages Section -->
+        <section id="packages" class="page-section">
+          <h2>📦 Manage Packages</h2>
+          <div class="search-bar">
+            <input type="text" placeholder="Search packages..." />
+          </div>
+          <p>List of packages will appear here...</p>
+        </section>
+
+        <!-- Manage Items Section -->
+        <section id="items" class="page-section">
+          <h2>🛒 Manage Items</h2>
+          <div class="search-bar">
+            <input type="text" placeholder="Search items..." />
+          </div>
+          <p>List of items will appear here...</p>
+        </section>
+
+        <!-- Customers Section -->
+        <section id="customers" class="page-section">
+          <h2>👥 Customers</h2>
+          <div class="search-bar">
+            <input type="text" placeholder="Search customers..." />
+          </div>
+          <p>Customers table will appear here...</p>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders" class="page-section">
+          <h2>📑 Orders</h2>
+          <div class="search-bar">
+            <input type="text" placeholder="Search orders..." />
+          </div>
+          <p>Orders list will appear here...</p>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="page-section">
+          <h2>⚙️ Settings</h2>
+          <p>Settings options will appear here...</p>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Handle sidebar page switching
+      const menuItems = document.querySelectorAll(".sidebar ul li");
+      const sections = document.querySelectorAll(".page-section");
+
+      menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          menuItems.forEach((i) => i.classList.remove("active"));
+          sections.forEach((sec) => sec.classList.remove("active"));
+
+          item.classList.add("active");
+          const target = item.getAttribute("data-page");
+          document.getElementById(target).classList.add("active");
+        });
+      });
+
+      // ✅ Handle Logout button
+      const logoutBtn = document.getElementById("logoutBtn");
+      logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        // Clear any stored admin session
+        try {
+          localStorage.removeItem("easybuy_admin_token");
+          sessionStorage.removeItem("easybuy_admin_token");
+        } catch (err) {
+          console.warn("Storage clear failed:", err);
+        }
+        // Redirect to admin login page
+        window.location.href = "admin-login.html";
+      });
+    </script>
+  </body>
+</html>
