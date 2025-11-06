@@ -162,6 +162,101 @@ footer {
 .auth-container button:hover {
   background-color: #e65c00;
 }
+/* --- Modern Hero Slider --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0,0,0,0));
+}
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.caption h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.caption h1 span {
+  color: #ff6600;
+}
+
+.caption p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #eaeaea;
+}
+
+.caption button {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.caption button:hover {
+  background: #e65c00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    height: 350px;
+  }
+  .caption h1 {
+    font-size: 1.8rem;
+  }
+  .caption p {
+    font-size: 0.9rem;
+  }
+  .caption {
+    left: 5%;
+  }
+}
 
 
 
