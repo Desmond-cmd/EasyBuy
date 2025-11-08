@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Sign Up | EasyBuy</title>
+    <link rel="stylesheet" href="admin-auth.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #0c5f46, #25a17e);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .auth-card {
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 350px;
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #0c5f46;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        text-align: left;
+        font-weight: 500;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      button {
+        background: #0c5f46;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #094c37;
+      }
+
+      p {
+        margin-top: 15px;
+      }
+
+      a {
+        color: #0c5f46;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="auth-card">
+      <h2>Create Admin Account</h2>
+
+      <form id="signupForm">
+        <label>Full Name</label>
+        <input
+          type="text"
+          id="fullname"
+          placeholder="Enter full name"
+          required
+        />
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter email" required />
+
+        <label>Username</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Choose a username"
+          required
+        />
+
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Create a password"
+          required
+        />
+
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          id="confirm"
+          placeholder="Confirm password"
+          required
+        />
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <p>Already have an account? <a href="admin-login.html">Login here</a></p>
+    </div>
+
+    <script>
+      const signupForm = document.getElementById("signupForm");
+
+      signupForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const fullname = document.getElementById("fullname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const confirm = document.getElementById("confirm").value;
+
+        if (password !== confirm) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        // Save admin data in localStorage
+        const adminData = { fullname, email, username, password };
+        localStorage.setItem("adminData", JSON.stringify(adminData));
+
+        alert("Sign up successful! Redirecting to login...");
+        window.location.href = "admin-login.html";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Packages | EasyBuy</title>
+    <link rel="stylesheet" href="admin-dashboard.css" />
+    <style>
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .search-bar {
+        position: relative;
+        width: 280px;
+      }
+
+      .search-bar input {
+        width: 100%;
+        padding: 10px 40px 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+        transition: 0.2s;
+      }
+
+      .search-bar input:focus {
+        border-color: #004d40;
+        box-shadow: 0 0 4px rgba(0, 77, 64, 0.3);
+      }
+
+      .search-bar i {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+      }
+
+      .table-container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f6f6f6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="logo">EasyBuy</h2>
+        <ul>
+          <li><a href="admin-dashboard.html">🏠 Dashboard</a></li>
+          <li class="active">
+            <a href="manage-packages.html">📦 Manage Packages</a>
+          </li>
+          <li><a href="manage-items.html">🛒 Manage Items</a></li>
+          <li><a href="customers.html">👥 Customers</a></li>
+          <li><a href="orders.html">📑 Orders</a></li>
+          <li><a href="settings.html">⚙️ Settings</a></li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="topbar">
+          <h3>Manage Packages</h3>
+          <a href="admin-login.html" class="logout-btn">Logout</a>
+        </header>
+
+        <div class="page-header">
+          <h2>All Packages</h2>
+          <div class="search-bar">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search packages..."
+            />
+            <i>🔍</i>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table id="packageTable">
+            <thead>
+              <tr>
+                <th>Package ID</th>
+                <th>Package Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P001</td>
+                <td>Family Essentials Pack</td>
+                <td>Household</td>
+                <td>$45.00</td>
+                <td>24</td>
+              </tr>
+              <tr>
+                <td>P002</td>
+                <td>Weekly Food Combo</td>
+                <td>Food</td>
+                <td>$35.00</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td>P003</td>
+                <td>Cooking Starter Pack</td>
+                <td>Kitchen</td>
+                <td>$28.00</td>
+                <td>40</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Simple search filter
+      const searchInput = document.getElementById("searchInput");
+      const tableRows = document.querySelectorAll("#packageTable tbody tr");
+
+      searchInput.addEventListener("input", function () {
+        const term = this.value.toLowerCase();
+        tableRows.forEach((row) => {
+          row.style.display = row.innerText.toLowerCase().includes(term)
+            ? ""
+            : "none";
+        });
+      });
+    </script>
+  </body>
+</html>

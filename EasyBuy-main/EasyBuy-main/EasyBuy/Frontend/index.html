@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyBuy Supermarket</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome for user icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="assets/images/EasyBuy.png"
+          alt="EasyBuy"
+          style="height: 40px; vertical-align: middle"
+        />
+        <span>EasyBuy</span>
+      </div>
+
+      <!-- ✅ Updated Navigation Links -->
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="single-items.html">Single Items</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search item" />
+        <button>🔍</button>
+      </div>
+
+      <!-- 👤 Account Button -->
+      <a href="login.html" class="account-btn">
+        <i class="fa fa-user"></i>
+      </a>
+
+      <!-- 🛒 Cart Button -->
+      <div class="cart-btn">🛒 Cart <span id="cart-count">0</span></div>
+    </header>
+
+    <!-- 🖼️ Modern Hero Slider Section -->
+    <section class="hero">
+      <div class="slide active">
+        <img src="assets/images/slider1.jpg" alt="Groceries Delivery" />
+        <div class="overlay"></div>
+        <div class="caption">
+          <h1><span>Fresh</span> Everyday</h1>
+          <p>
+            Shop fresh groceries, fruits, and household essentials delivered
+            fast.
+          </p>
+          <button>SHOP NOW →</button>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/images/slider2.jpg" alt="Affordable Packages" />
+        <div class="overlay"></div>
+        <div class="caption">
+          <h1><span>Packages</span> That Save You More</h1>
+          <p>
+            Get the best value with our pre-packed family and student bundles.
+          </p>
+          <button>VIEW PACKAGES →</button>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="assets/images/slider3.jpg" alt="Quality Items" />
+        <div class="overlay"></div>
+        <div class="caption">
+          <h1><span>Quality</span> You Can Trust</h1>
+          <p>Buy single items or combo deals — all from EasyBuy Supermarket.</p>
+          <button>START SHOPPING →</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // --- Slider JavaScript ---
+      let slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      function showNextSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }
+
+      setInterval(showNextSlide, 5000);
+    </script>
+
+    <script src="script.js"></script>
+
+
+    <section class="packages-section">
+      <div class="section-header">
+        <div>
+          <h2>Our Packages</h2>
+          <p>Curated combos to save you time and money</p>
+        </div>
+        <a href="#" class="view-all">View All →</a>
+      </div>
+
+      <div class="packages-grid">
+        <!-- Family Pack -->
+        <div class="package-card">
+          <div class="image-container">
+            <img src="assets/images/Family Pack.jpg" alt="Family Pack" />
+          </div>
+          <div class="content">
+            <h3>Family Pack</h3>
+            <p>Complete grocery essentials for a family of 4–5</p>
+            <ul>
+              <li>Rice 10kg</li>
+              <li>Oil 5L</li>
+              <li>Milk 6x</li>
+              <li class="more-items">+3 more items</li>
+            </ul>
+            <div class="bottom-row">
+              <div>
+                <span class="price">₵150</span>
+                <span class="item-count">6 items</span>
+              </div>
+              <button class="add-btn">🛒 Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Pack -->
+        <div class="package-card">
+          <div class="image-container">
+            <img src="assets/images/Student Pack.jpg" alt="Student Pack" />
+          </div>
+          <div class="content">
+            <h3>Student Pack</h3>
+            <p>Budget-friendly essentials for students</p>
+            <ul>
+              <li>Rice 2kg</li>
+              <li>Oil 1L</li>
+              <li>Noodles 12x</li>
+              <li class="more-items">+2 more items</li>
+            </ul>
+            <div class="bottom-row">
+              <div>
+                <span class="price">₵200</span>
+
+                <span class="item-count">5 items</span>
+              </div>
+              <button class="add-btn">🛒 Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Premium Pack -->
+        <div class="package-card">
+          <div class="image-container">
+            <img src="assets/images/Premium Pack.jpg" alt="Bachelor Pack" />
+          </div>
+          <div class="content">
+            <h3>Premium Pack</h3>
+            <p>Quick meals and basic groceries for singles</p>
+            <ul>
+              <li>Rice 5kg</li>
+              <li>Oil 2L</li>
+              <li>Instant Meals</li>
+              <li class="more-items">+2 more items</li>
+            </ul>
+            <div class="bottom-row">
+              <div>
+                <span class="price">₵250</span>
+                <span class="item-count">5 items</span>
+              </div>
+              <button class="add-btn">🛒 Add to Cart</button>
+            </div>
+            </div>
+</section>
+<section class="single-items" id="single-items">
+  <div class="section-header">
+    <div>
+      <h2>Single Items</h2>
+      <p>Pick exactly what you need</p>
+    </div>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+
+  <div class="items-grid">
+    <!-- Spaghetti -->
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Spaghetti.jpg" alt="Spaghetti" />
+      </div>
+      <div class="content">
+        <h3>Spaghetti</h3>
+        <p>Budget-friendly essentials for students</p>
+        
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵25</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cooking Oil -->
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Cooking Oil.jpg" alt="Cooking Oil" />
+      </div>
+      <div class="content">
+        <h3>Cooking Oil</h3>
+        <p>Pure and healthy cooking oil for your meals</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵80</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sardine -->
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Sardine.jpg" alt="Sardine" />
+      </div>
+      <div class="content">
+        <h3>Sardine</h3>
+        <p>Delicious and protein-rich sardine for every meal</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵45</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Milo -->
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Milo.jpg" alt="Milo" />
+      </div>
+      <div class="content">
+        <h3>Milk</h3>
+        <p>Rich  Milo for your daily nutrition</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵35</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rice -->
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Fortune Rice Bag.jpg" alt="Rice" />
+    
+      </div>
+      <div class="content">
+        <h3>Rice</h3>
+        <p>Premium long-grain rice perfect for family meals</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵250</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pepper-->
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Pepper.jpg" alt="Pepper" />
+      </div>
+      <div class="content">
+        <h3>Pepper</h3>
+        <p>Refined for healthy cooking</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵80</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Milo smalljpg.jpg" alt="Sardine" />
+      </div>
+      <div class="content">
+        <h3>Sardine</h3>
+        <p>Ready-to-eat canned fish with natural flavor</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵45</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="image-container">
+        <img src="assets/images/Spaghetti.jpg" alt="Milk" />
+      </div>
+      <div class="content">
+        <h3>Milk</h3>
+        <p>Fresh milk for your breakfast and tea</p>
+        <div class="bottom-row">
+          <div>
+            <span class="price">₵50</span>
+          </div>
+          <button class="add-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-banner">
+  <div class="cta-content">
+    <h2>Ready to Start Shopping?</h2>
+    <p>Join thousands of happy customers getting fresh groceries delivered</p>
+    <button class="cta-button">Start Shopping Now</button>
+  </div>
+  <style>
+  .cta-banner {
+    background: linear-gradient(135deg, #ff6b35 0%, #ff6600 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .cta-content p {
+    color: white;
+    font-size: 1.125rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+
+  .cta-button {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+
+  .cta-button:active {
+    transform: translateY(0);
+  }
+</style>
+</section>
+
+  </body>
+</html>

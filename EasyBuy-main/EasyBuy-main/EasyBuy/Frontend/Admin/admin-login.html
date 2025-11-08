@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | EasyBuy</title>
+    <link rel="stylesheet" href="admin-auth.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #0c5f46, #25a17e);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .auth-card {
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 350px;
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #0c5f46;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        text-align: left;
+        font-weight: 500;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+      }
+
+      button {
+        background: #0c5f46;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #094c37;
+      }
+
+      p {
+        margin-top: 15px;
+      }
+
+      a {
+        color: #0c5f46;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .error {
+        color: red;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="auth-card">
+      <h2>Admin Login</h2>
+
+      <form id="loginForm">
+        <label>Username</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter username"
+          required
+        />
+
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter password"
+          required
+        />
+
+        <p class="error" id="errorMsg"></p>
+
+        <button type="submit">Login</button>
+      </form>
+
+      <p>Don’t have an account? <a href="admin-signup.html">Sign up here</a></p>
+    </div>
+
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      const errorMsg = document.getElementById("errorMsg");
+
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        // Retrieve admin data from localStorage
+        const adminData = JSON.parse(localStorage.getItem("adminData"));
+
+        if (!adminData) {
+          errorMsg.textContent =
+            "No admin account found. Please sign up first.";
+          return;
+        }
+
+        if (
+          username === adminData.username &&
+          password === adminData.password
+        ) {
+          alert("Login successful!");
+
+          // Save session info
+          localStorage.setItem("isAdminLoggedIn", "true");
+          localStorage.setItem("activeAdmin", adminData.username);
+
+          // Redirect to dashboard
+          window.location.href = "admin-dashboard.html";
+        } else {
+          errorMsg.textContent = "Invalid username or password!";
+        }
+      });
+    </script>
+  </body>
+</html>

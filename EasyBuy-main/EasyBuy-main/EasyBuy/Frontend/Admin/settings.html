@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings | EasyBuy Admin</title>
+    <link rel="stylesheet" href="admin-dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <h2 class="logo">EasyBuy</h2>
+        <ul>
+          <li><a href="admin-dashboard.html">🏠 Dashboard</a></li>
+          <li><a href="manage-packages.html">📦 Manage Packages</a></li>
+          <li><a href="manage-items.html">🛒 Manage Items</a></li>
+          <li><a href="customers.html">👥 Customers</a></li>
+          <li><a href="orders.html">📑 Orders</a></li>
+          <li class="active"><a href="settings.html">⚙️ Settings</a></li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <h3>Settings</h3>
+          <a href="admin-login.html" class="logout-btn">Logout</a>
+        </header>
+
+        <section class="content-section">
+          <h2>Admin Settings</h2>
+          <p>Update your account preferences here.</p>
+
+          <form class="settings-form">
+            <label>Change Password</label>
+            <input type="password" placeholder="Enter new password" />
+            <button>Save Changes</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

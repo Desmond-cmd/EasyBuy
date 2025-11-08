@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌈 Soft floating glow circles */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+}
+body::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  background: #99f0c4;
+}
+body::after {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  right: -150px;
+  background: #b0eac1;
+}
+
+.auth-container {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* Logo styling */
+.auth-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.auth-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.auth-logo span {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2e6b52;
+}
+
+.auth-card h2 {
+  color: #1f513f;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+input {
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #2e6b52;
+  box-shadow: 0 0 8px rgba(46, 107, 82, 0.2);
+}
+
+button {
+  margin-top: 25px;
+  background-color: #2e6b52;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  background-color: #234d3b;
+  transform: translateY(-1px);
+}
+
+p {
+  margin-top: 15px;
+  color: #555;
+}
+
+a {
+  color: #2e6b52;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
